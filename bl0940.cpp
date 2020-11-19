@@ -85,9 +85,9 @@ float bl0940::getActivePower()
 
 /*!
  * bl0940::getReactivePower
- * Get measured Reactive Power in VAr
+ * Calculate Reactive Power in VAr
  *
- * @return Last measured active power
+ * @return Calculated Reactive power
  * 
  * Calculations from Power Triangle
  */
@@ -98,9 +98,9 @@ float bl0940::getReactivePower()
 
 /*!
  * bl0940::getApparentPower
- * Get measured Apparent Power in VA
+ * Calculate Apparent Power in VA
  *
- * @return Last measured active power
+ * @return Calculated Apparent power
  * 
  * Calculations from Power Triangle
  */
@@ -124,7 +124,7 @@ float bl0940::getEnergy()
 
 /*!
  * bl0940::getEnergy
- * Get measured Energy in kWh for number of CF pulses
+ * Calculate Energy in kWh for number of CF pulses
  *
  * @param Counted Energy pulses
  * @return Total measured Energy
@@ -149,7 +149,7 @@ float bl0940::getEnergy(uint32_t cf)
 
 /*!
  * bl0940::getEnergyDelta
- * Get measured Energy delta in kWh between two function calls
+ * Calculate Energy delta in kWh between two function calls
  *
  * @return Measured Energy delta 
  */
@@ -182,10 +182,10 @@ float bl0940::getPhaseAngle()
 
 /*!
  * bl0940::getPowerFactor
- * Get Phase Angle in Radians
+ * Get Power factor
  *
  * @param Result in percentage ( default true )
- * @return Phase Angle 
+ * @return Power factor 
  */
 float bl0940::getPowerFactor(bool percentage)
 {   
