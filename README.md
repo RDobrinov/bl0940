@@ -32,6 +32,10 @@ For code test enthusiasts - Do not forget to apply any internal register changes
 
 The main reason to write this library is to use [Xose Pérez][3] [ESPurna Firmware][4] with [BlitzWolf® BW-SHP10 3680W][2], so all measurement calibration is for my own device. But I'm sure there couldn't be a significant differences in voltage divider and shunt resistor value. In future version, I'm going to add some code to allow user manipulation of this two parameters.
 
+And picture taken from [Espurna][4] test environment
+![Pure resistive load](/pics/shp10-status.png)
+
+
 [1]:http://www.belling.com.cn/en/product_info.html?id=211
 [2]:https://www.blitzwolf.com/3680W-16A-WIFI-Smart-Socket-p-453.html
 [3]:https://github.com/xoseperez
