@@ -180,7 +180,7 @@ struct bl0940Config_t
 class bl0940
 {
     public:
-        bl0940( HardwareSerial* hwSerial );
+        bl0940( Stream* stream, bool hwSerial = true );
         ~bl0940();
 
         float getVoltage();
@@ -196,7 +196,7 @@ class bl0940
         float getTemperature();
         bl0940States getState();
         bl0940Config_t getCurrentConfig();
-
+        
         void setRMSUpdate(uint8_t val = BL0940_RMS_REG_UPDATE_RATE_400MS);
         void setACFrequency(uint8_t val = BL0940_AC_FREQ_50HZ);
         void setCFPinMode(uint8_t val = BL0940_CF_ENERGY_PULSE);
@@ -215,6 +215,7 @@ class bl0940
 
     private:
         Stream* _serial;
+        bool    _softSerial;
         uint8_t _rawHolder[21];
         bl0940States _state;
 

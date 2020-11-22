@@ -4,13 +4,32 @@
  * bl0940::bl0940
  * Class constructor
  *
- * @param hwSerial Pointer to hardware serial connected to BL0940
+ * @param stream Pointer to hardware serial connected to BL0940
  * 
 */
-bl0940::bl0940(HardwareSerial* hwSerial)
+bl0940::bl0940(Stream* stream)
 {
-    this->_serial = hwSerial;
+    this->_serial = stream;
+    _softSerial = true;
     static_cast<HardwareSerial*>(_serial)->begin(BL0940_DEFAULT_BAUD_RATE, BL0940_DEFAULT_PORT_CONFIG);
+    _init();
+}
+
+/*!
+ * bl0940::bl0940
+ * Class constructor
+ *
+ * @param rxPin RXD pin for SoftwareSerial
+ * @param txPin TXD pin for SoftwareSerial
+ * 
+*/
+bl0940::bl0940(uint8_t rxPin, uint8_t txPin)
+{
+    SoftwareSerial *stream = new SoftwareSerial(rxPin, txPin);
+    _serial = stream;
+    _softSerial = true;
+    static_cast<SoftwareSerial*>(_serial)->begin(BL0940_DEFAULT_BAUD_RATE, BL0940_DEFAULT_PORT_CONFIG);
+    static_cast<SoftwareSerial*>(_serial)->listen();
     _init();
 }
 
@@ -20,7 +39,9 @@ bl0940::bl0940(HardwareSerial* hwSerial)
  * 
 */
 bl0940::~bl0940()
-{}
+{
+    if(_softSerial) delete this->_serial;
+}
 
 /*!
  * bl0940::getVoltage
