@@ -8,6 +8,8 @@
 #include "WProgram.h"
 #endif
 
+#include <SoftwareSerial.h>
+
 /*!
  * From BL0940 Calibration-free Metering IC Datasheet
  * http://www.belling.com.cn/media/file_object/bel_product/BL0940/datasheet/BL0940_V1.1_en.pdf
