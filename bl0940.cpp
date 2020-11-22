@@ -10,7 +10,7 @@
 bl0940::bl0940(Stream* stream)
 {
     this->_serial = stream;
-    _softSerial = true;
+    _softSerial = false;
     static_cast<HardwareSerial*>(_serial)->begin(BL0940_DEFAULT_BAUD_RATE, BL0940_DEFAULT_PORT_CONFIG);
     _init();
 }

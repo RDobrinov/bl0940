@@ -180,7 +180,8 @@ struct bl0940Config_t
 class bl0940
 {
     public:
-        bl0940( Stream* stream, bool hwSerial = true );
+        bl0940( Stream* stream);
+        bl0940(uint8_t rxPin, uint8_t txPin);
         ~bl0940();
 
         float getVoltage();
