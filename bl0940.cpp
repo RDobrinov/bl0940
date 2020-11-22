@@ -28,7 +28,7 @@ bl0940::bl0940(uint8_t rxPin, uint8_t txPin)
     SoftwareSerial *stream = new SoftwareSerial(rxPin, txPin);
     _serial = stream;
     _softSerial = true;
-    static_cast<SoftwareSerial*>(_serial)->begin(BL0940_DEFAULT_BAUD_RATE, BL0940_DEFAULT_PORT_CONFIG);
+    static_cast<SoftwareSerial*>(_serial)->begin(BL0940_DEFAULT_BAUD_RATE);     //SoftwareSerial limitations
     static_cast<SoftwareSerial*>(_serial)->listen();
     _init();
 }
